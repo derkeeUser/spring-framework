@@ -288,9 +288,10 @@ configure(allprojects) { project ->
 			cacheChangingModulesFor 0, "seconds"
 		}
 		repositories {
+			mavenLocal()
+			maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
 			mavenCentral()
 			maven { url "https://repo.spring.io/libs-spring-framework-build" }
-			maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
 		}
 	}
 	configurations.all {
@@ -420,5 +421,9 @@ configure(rootProject) {
 				artifact distZip
 			}
 		}
+	}
+
+	task wrapper(type: Wrapper) {
+		gradleVersion = '6.8.3'
 	}
 }
